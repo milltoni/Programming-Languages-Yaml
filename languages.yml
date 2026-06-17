@@ -1,25 +1,3 @@
-javascript:
-  name: JavaScript
-  creator: Brendan Eich (Netscape)
-  description: "A high-level, interpreted programming language that conforms to the ECMAScript specification. It is a core technology of the World Wide Web, enabling interactive web pages and dynamic content. Despite its name, it is not directly related to Java; the naming was a marketing decision."
-  people:
-    - Brendan Eich
-  influenced_by:
-    #- self
-    #- scheme
-    - java
-    #- awk
-    - c
-  influenced:
-    - typescript
-    #- coffeescript
-    #- dart
-    #- actionscript
-    #- livescript
-    #- elm
-    #- reason
-    #- jsx
-# ------------------------------------------
 kotlin:
   name: Kotlin
   creator: JetBrains
@@ -38,6 +16,38 @@ kotlin:
   influenced:
     - swift
     - java
+  features:
+    val_var:
+      description: "Distinction between mutable (var) and read-only (val) local variables and properties, promoting immutability by default."
+      inspired_by: scala.features.val_var
+    types_on_the_right:
+      description: "Type annotations follow the variable name, separated by a colon, instead of prefixing the type (e.g., 'name: String' instead of 'String name')."
+      inspired_by: scala
+    fun_keyword:
+      description: "Functions and methods are declared using the 'fun' keyword, a concise syntax common in functional and educational languages."
+      invented: false
+    data_class:
+      description: "Classes whose primary purpose is to hold data. The compiler automatically derives equals(), hashCode(), toString(), copy(), and componentN() functions from the properties declared in the primary constructor."
+      inspired_by: scala.features.case_class
+    component_functions:
+      description: "Compiler-generated component1(), component2(), etc., methods for data classes that enable destructuring declarations (val (name, age) = person)."
+      inspired_by: scala.features.extractors
+    extensions:
+      description: "Ability to add new functions and properties to existing classes without modifying their source code or using inheritance."
+      inspired_by: c_sharp.features.extension_methods
+    colon_for_inheritance:
+      description: "Using a colon (:) to denote both inheritance (instead of 'extends') and interface implementation (instead of 'implements'), requiring a call to the parent constructor."
+      inspired_by: scala
+    primary_constructor:
+      description: "A concise constructor syntax included directly in the class header, allowing property declaration and initialization without a separate constructor body."
+      inspired_by: scala
+    angle_brackets_for_generics:
+      description: "Using angle brackets (<T>) for generic type parameters. Kotlin's implementation includes declaration-site variance (in/out) and reified type parameters, which are closer to C# than to Java's erased generics."
+      inspired_by: c_sharp
+    coroutines:
+      description: "A language-level concurrency primitive based on suspendable functions. Unlike C#'s async/await, coroutines in Kotlin are a compiler-backed, library-implemented feature using suspend modifiers and Continuation-passing style."
+      predated_by: c_sharp.features.async_await
+      invented: true
 # ------------------------------------------
 scala:
   name: Scala
@@ -48,19 +58,26 @@ scala:
   influenced_by:
     - java
     - c_sharp
-    - haskell
-    - erlang
-    - smalltalk
-    - standard_ml
     - ocaml
-    - scheme
     - eiffel
   influenced:
     - kotlin
     - ceylon
-    #- fantom
     - f_sharp
     - swift
+  features:
+    val_var:
+      description: ""
+    types_on_the_right:
+      description: ""
+    case_class:
+      description: ""    
+    extractors:
+      description: ""
+    implicit_functions:
+      description: ""
+    primary_constructor:
+      description: ""
 # ------------------------------------------
 java:
   name: Java
@@ -74,7 +91,6 @@ java:
     - Alex Buckley
   influenced_by:
     - c_plus_plus
-    - smalltalk
     - objective_c
     - eiffel
     - ada
@@ -85,10 +101,7 @@ java:
     - kotlin
     - scala
     - groovy
-    - clojure
     - python
-    - javascript
-    - php
     - ruby
 # ------------------------------------------
 c_sharp:
@@ -104,13 +117,16 @@ c_sharp:
     - delphi
     - eiffel
     - modula_3
-    - smalltalk
   influenced:
     - kotlin
     - swift
     - f_sharp
     - d
-    - vala
+  features:
+    extension_methods:
+      description: ""
+    async_await:
+      description: ""
 # ------------------------------------------
 groovy:
   name: Groovy
@@ -124,10 +140,8 @@ groovy:
     - java
     - python
     - ruby
-    - smalltalk
   influenced:
     - kotlin
-    #- graalvm
 # ------------------------------------------
 swift:
   name: Swift
@@ -140,7 +154,6 @@ swift:
   influenced_by:
     - objective_c
     - rust
-    - haskell
     - ruby
     - python
     - c_sharp
@@ -149,7 +162,6 @@ swift:
   influenced:
     - kotlin
     - rust
-    - zig
 # ------------------------------------------
 python:
   name: Python
@@ -158,80 +170,14 @@ python:
   people:
     - Guido van Rossum
   influenced_by:
-    #- abc
     - modula_3
     - c
-    - algol_68
-    - smalltalk
-    - lisp
   influenced:
     - ruby
     - groovy
     - swift
-    #- julia
     - kotlin
     - go
-# ------------------------------------------
-haskell:
-  name: Haskell
-  creator: Haskell Committee
-  description: "A standardized, purely functional programming language with non-strict semantics and strong static typing. It is named after logician Haskell Curry and is widely used in academia and industry for research and high-assurance systems."
-  people:
-    - Simon Peyton Jones
-    - Philip Wadler
-    - Paul Hudak
-    - John Hughes
-  influenced_by:
-    #- miranda
-    #- ml
-    - lisp
-    #- lazy_ml
-  influenced:
-    - scala
-    - f_sharp
-    - rust
-    - swift
-    #- agda
-    #- idris
-# ------------------------------------------
-erlang:
-  name: Erlang
-  creator: Joe Armstrong, Robert Virding, Mike Williams (Ericsson)
-  description: "A concurrent, functional programming language designed for building massively scalable, fault-tolerant, soft real-time systems. It features lightweight processes, message passing, and hot code swapping."
-  people:
-    - Joe Armstrong
-    - Robert Virding
-    - Mike Williams
-  influenced_by:
-    - prolog
-    - smalltalk
-    #- plex
-  influenced:
-    - elixir
-    - scala
-    #- akka
-    - go
-    #- pony
-# ------------------------------------------
-smalltalk:
-  name: Smalltalk
-  creator: Alan Kay, Dan Ingalls, Adele Goldberg (Xerox PARC)
-  description: "A pioneering pure object-oriented programming language and development environment where everything is an object and all computation is performed by sending messages. It profoundly influenced modern OOP and IDEs."
-  people:
-    - Alan Kay
-    - Dan Ingalls
-    - Adele Goldberg
-  influenced_by:
-    - lisp
-    - simula
-  influenced:
-    - java
-    - ruby
-    - python
-    - objective_c
-    - groovy
-    - scala
-    - swift
 # ------------------------------------------
 ceylon:
   name: Ceylon
@@ -243,7 +189,6 @@ ceylon:
   influenced_by:
     - java
     - scala
-    - smalltalk
   influenced:
     - kotlin
 # ------------------------------------------
@@ -257,8 +202,6 @@ c_plus_plus:
     - Andrei Alexandrescu
   influenced_by:
     - c
-    - simula
-    - algol_68
     - ada
   influenced:
     - java
@@ -266,7 +209,6 @@ c_plus_plus:
     - d
     - rust
     - python
-    - php
 # ------------------------------------------
 objective_c:
   name: Objective-C
@@ -277,7 +219,6 @@ objective_c:
     - Tom Love
   influenced_by:
     - c
-    - smalltalk
   influenced:
     - java
     - swift
@@ -291,42 +232,16 @@ c:
     - Dennis Ritchie
     - Ken Thompson
     - Brian Kernighan
-  influenced_by:
-    #- bcpl
-    #- b
-    - algol_68
   influenced:
     - c_plus_plus
     - objective_c
     - c_sharp
     - java
-    - javascript
     - python
     - go
     - rust
-    - php
     - perl
     - d
-# ------------------------------------------
-# ------------------------------------------
-php:
-  name: PHP
-  creator: Rasmus Lerdorf
-  description: "A widely-used open-source general-purpose scripting language, especially suited for web development and embeddable into HTML. It originally stood for 'Personal Home Page' and now stands for the recursive acronym 'PHP: Hypertext Preprocessor'."
-  people:
-    - Rasmus Lerdorf
-    - Zeev Suraski
-    - Andi Gutmans
-  influenced_by:
-    - c
-    - perl
-    - java
-    - c_plus_plus
-    #- tcl
-  influenced:
-    #- hack
-    #- falcon
-    - javascript
 # ------------------------------------------
 go:
   name: Go
@@ -342,15 +257,9 @@ go:
     - pascal
     - modula
     - oberon
-    #- limbo
-    #- csp
-    #- alef
   influenced:
     - rust
-    - zig
-    #- v
     - crystal
-    #- odin
 # ------------------------------------------
 rust:
   name: Rust
@@ -365,18 +274,10 @@ rust:
   influenced_by:
     - c_plus_plus
     - ocaml
-    - haskell
-    - erlang
-    #- cyclone
     - swift
-    #- alef
-    - standard_ml
   influenced:
     - swift
-    - zig
     - crystal
-    #- v
-    #- idris
 # ------------------------------------------
 perl:
   name: Perl
@@ -390,38 +291,10 @@ perl:
     - Damian Conway
   influenced_by:
     - c
-    - awk
-    #- sed
-    #- sh
-    - basic
-    - lisp
   influenced:
-    - php
     - ruby
     - python
-    #- raku
-    - javascript
     - groovy
-# ------------------------------------------
-typescript:
-  name: TypeScript
-  creator: Microsoft (Anders Hejlsberg, Luke Hoban)
-  description: "A strongly typed, object-oriented, compiled programming language that builds on JavaScript. It is a strict syntactic superset of JavaScript and adds optional static typing, making it a powerful tool for developing large-scale applications."
-  people:
-    - Anders Hejlsberg
-    - Luke Hoban
-    - Steve Lucco
-    - Daniel Rosenwasser
-  influenced_by:
-    - javascript
-    - java
-    - c_sharp
-    - f_sharp
-  influenced: []
-    #- atscript
-    #- derw
-    #- reason
-    #- rescript
 # ------------------------------------------
 ruby:
   name: Ruby
@@ -431,55 +304,15 @@ ruby:
     - Yukihiro Matsumoto
   influenced_by:
     - ada
-    - basic
     - c_plus_plus
-    #- clu
-    #- dylan
     - eiffel
-    - lisp
-    - lua
     - perl
     - python
-    - smalltalk
   influenced:
-    - clojure
-    - coffeescript
     - crystal
     - d
-    - elixir
     - groovy
-    #- julia
     - rust
-# ------------------------------------------
-awk:
-  name: Awk
-  creator: Alfred Aho, Peter Weinberger, Brian Kernighan (Bell Labs)
-  description: "A domain-specific language designed for text processing and data extraction, typically used as a filter and reporting tool in Unix-like environments. Its name is derived from the initials of its creators' surnames."
-  people:
-    - Alfred Aho
-    - Peter Weinberger
-    - Brian Kernighan
-  influenced_by:
-    - c
-    #- sed
-    #- snobol
-  influenced:
-    - perl
-    #- tcl
-    #- ampl
-    - lua
-# ------------------------------------------
-jsx:
-  name: JSX
-  creator: Facebook (Jordan Walke)
-  description: "An XML-like syntax extension to JavaScript, initially created for use with the React library. It provides syntactic sugar for writing nested component structures that are transpiled into standard JavaScript function calls."
-  people:
-    - Jordan Walke
-  influenced_by: []
-    #- e4x
-    #- xhp
-  influenced:
-    - typescript
 # ------------------------------------------
 f_sharp:
   name: F#
@@ -490,15 +323,11 @@ f_sharp:
   influenced_by:
     - ocaml
     - c_sharp
-    - haskell
     - python
     - scala
-    - erlang
   influenced:
     - c_sharp
     - swift
-    #- reason
-    #- gleam
 # ------------------------------------------
 modula_3:
   name: Modula-3
@@ -513,37 +342,17 @@ modula_3:
     - Greg Nelson
   influenced_by:
     - algol
-    #- euclid
     - mesa
     - modula_2
-    #- modula_2_plus
     - oberon
     - object_pascal
     - pascal
   influenced:
     - c_sharp
     - java
-    #- nim
     - ocaml
     - python
     - rust
-# ------------------------------------------
-vala:
-  name: Vala
-  creator: Jürg Billeter, Raffaele Sandrini
-  description: "An object-oriented programming language with a self-hosting compiler that generates C code using the GObject type system. It is designed to bring modern language features to GNOME development without imposing additional runtime requirements."
-  people:
-    - Jürg Billeter
-    - Raffaele Sandrini
-  influenced_by:
-    - c
-    - c_plus_plus
-    - c_sharp
-    - d
-    - java
-    #- boo
-  influenced: []
-    #- genie
 # ------------------------------------------
 d:
   name: D
@@ -560,91 +369,6 @@ d:
     - java
     - python
     - ruby
-  influenced:
-    #- genie
-    - vala
-    #- nim
-    - zig
-# ------------------------------------------
-self:
-  name: Self
-  creator: David Ungar, Randall Smith (Xerox PARC)
-  description: "An object-oriented programming language based on the concept of prototypes. It was a dialect of Smalltalk and pioneered many just-in-time compilation techniques later used in Java's HotSpot virtual machine. First appeared in 1987."
-  people:
-    - David Ungar
-    - Randall Smith
-  influenced_by:
-    - smalltalk
-  influenced:
-    - javascript
-    #- newtonscript
-    #- io
-    #- cel
-    #- agora
-    #- squeak
-    #- lisaac
-    - lua
-    #- factor
-    #- rebol
-# ------------------------------------------
-scheme:
-  name: Scheme
-  creator: Guy L. Steele, Gerald Jay Sussman (MIT AI Lab)
-  description: "A minimalist, statically scoped dialect of the Lisp family of programming languages. It was created in the 1970s and is known for its clean semantics and influence on functional programming education. The language was introduced via a series of memos known as the Lambda Papers (1975–1980)."
-  people:
-    - Guy L. Steele
-    - Gerald Jay Sussman
-  influenced_by:
-    - lisp
-    - algol
-  influenced:
-    - common_lisp
-    - clojure
-    #- racket
-    - javascript
-    - ruby
-    #- dylan
-    - lua
-    #- r
-# ------------------------------------------
-coffeescript:
-  name: CoffeeScript
-  creator: Jeremy Ashkenas
-  description: "A programming language that compiles to JavaScript. It adds syntactic sugar inspired by Ruby, Python, and Haskell to enhance JavaScript's brevity and readability. First appeared in 2009."
-  people:
-    - Jeremy Ashkenas
-  influenced_by:
-    - ruby
-    - python
-    - haskell
-  influenced:
-    - javascript
-    - livescript
-    - typescript
-    #- moonscript
-    #- coco
-# ------------------------------------------
-lisp:
-  name: Lisp
-  creator: John McCarthy (MIT)
-  description: "A family of programming languages with a long history and a distinctive, fully parenthesized prefix notation. Originally specified in 1958, Lisp is the second-oldest high-level programming language still in widespread use today. It pioneered many ideas in computer science, including tree data structures, automatic garbage collection, dynamic typing, and the self-hosting compiler."
-  people:
-    - John McCarthy
-    - Steve Russell
-  influenced_by: []
-    #- ipl
-  influenced:
-    - scheme
-    - common_lisp
-    - clojure
-    #- emacs_lisp
-    #- logo
-    #- ml
-    - perl
-    - python
-    - ruby
-    - smalltalk
-    #- racket
 # ------------------------------------------
 algol:
   name: Algol
@@ -656,17 +380,11 @@ algol:
     - Alan Perlis
     - John McCarthy
     - Adriaan van Wijngaarden
-  influenced_by:
-    - fortran
   influenced:
     - pascal
     - c
-    - simula
     - ada
-    #- pl_i
     - modula
-    #- b
-    - scheme
 # ------------------------------------------
 pascal:
   name: Pascal
@@ -676,8 +394,6 @@ pascal:
     - Niklaus Wirth
   influenced_by:
     - algol
-    - algol_w
-    - simula
   influenced:
     - modula
     - modula_2
@@ -685,7 +401,6 @@ pascal:
     - ada
     - delphi
     - object_pascal
-    #- component_pascal
     - go
 # ------------------------------------------
 modula:
@@ -704,44 +419,6 @@ modula:
     - ada
     - go
 # ------------------------------------------
-basic:
-  name: BASIC
-  creator: John G. Kemeny, Thomas E. Kurtz (Dartmouth College)
-  description: "A family of general-purpose, high-level programming languages whose design philosophy emphasizes ease of use. The original version was designed in 1964 to provide computer access to non-science students. Its simplicity made it the first programming language for many hobbyists and early microcomputers."
-  people:
-    - John G. Kemeny
-    - Thomas E. Kurtz
-  influenced_by:
-    - fortran
-    - algol
-  influenced:
-    - visual_basic
-    #- vb_net
-    #- gambas
-    - small_basic
-    - qbasic
-    - freebasic
-    - purebasic
-    #- blitz_basic
-# ------------------------------------------
-simula:
-  name: Simula
-  creator: Ole-Johan Dahl, Kristen Nygaard (Norwegian Computing Center)
-  description: "The name of two simulation programming languages, Simula I and Simula 67, developed in the 1960s at the Norwegian Computing Center in Oslo. Simula 67 introduced objects, classes, inheritance, and virtual procedures, and is considered the first object-oriented programming language.[reference:0][reference:1]"
-  people:
-    - Ole-Johan Dahl
-    - Kristen Nygaard
-  influenced_by:
-    - algol_60
-    #- simscript
-  influenced:
-    - c_plus_plus
-    - java
-    - c_sharp
-    - object_pascal
-    - eiffel
-    - smalltalk
-# ------------------------------------------
 delphi:
   name: Delphi
   creator: Anders Hejlsberg (Borland)
@@ -750,34 +427,15 @@ delphi:
     - Anders Hejlsberg
   influenced_by:
     - object_pascal
-    - turbo_pascal
     - c_plus_plus
-    - smalltalk
   influenced:
     - c_sharp
     - java
     - python
     - ruby
-    - visual_basic
-# ------------------------------------------
-algol_68:
-  name: ALGOL 68
-  creator: IFIP Working Group 2.1 (led by Adriaan van Wijngaarden)
-  description: "A procedural programming language designed in 1968 as the intended successor to ALGOL 60. It is an imperative programming language that was conceived as a general-purpose, versatile, and neatly designed language. It introduced many innovative features, including user-defined data types, operator overloading, and concurrency, and was specified using the two-level Van Wijngaarden grammar.[reference:2]"
-  people:
-    - Adriaan van Wijngaarden
-    - Barry J. Mailloux
-    - John E. L. Peck
-    - Cornelis H. A. Koster
-  influenced_by:
-    - algol_60
-  influenced:
-    - c
-    - c_plus_plus
-    - ada
-    - python
-    #- bourne_shell
-    - bash
+  features:
+    types_on_the_right:
+      description: ""
 # ------------------------------------------
 eiffel:
   name: Eiffel
@@ -787,34 +445,12 @@ eiffel:
     - Bertrand Meyer
   influenced_by:
     - ada
-    - simula
-    #- z
   influenced:
     - java
     - c_sharp
     - d
     - ruby
     - scala
-    #- ada_2012
-    #- racket
-    #- sather
-# ------------------------------------------
-fortran:
-  name: Fortran
-  creator: John Backus (IBM)
-  description: "A third-generation, compiled, imperative programming language designed for numeric computation and scientific computing. Originally developed by IBM in the 1950s, it was the first widely used high-level programming language. Fortran has evolved through numerous versions and remains a popular language for high-performance computing and scientific applications.[reference:4]"
-  people:
-    - John Backus
-  influenced_by:
-    - speedcoding
-  influenced:
-    - algol_58
-    - basic
-    - c
-    - matlab
-    #- pl_i
-    #- chapel
-    #- ratfor
 # ------------------------------------------
 ada:
   name: Ada
@@ -824,56 +460,13 @@ ada:
     - Jean Ichbiah
   influenced_by:
     - pascal
-    - algol_68
-    #- green
     - modula_2
     - c_plus_plus
   influenced:
     - c_plus_plus
     - java
     - eiffel
-    - pl_sql
     - ruby
-# ------------------------------------------
-clojure:
-  name: Clojure
-  creator: Rich Hickey
-  description: "A dynamic and functional dialect of the Lisp programming language on the Java platform. It treats code as data and has a robust macro system, with an emphasis on immutability and first-class functions for concurrent programming."
-  people:
-    - Rich Hickey
-  influenced_by:
-    - lisp
-    - scheme
-    - common_lisp
-    - java
-    - erlang
-    #- ml
-  influenced:
-    - elixir
-    #- pixie
-    #- hy
-    #- fennel
-    #- janet
-# ------------------------------------------
-lua:
-  name: Lua
-  creator: Roberto Ierusalimschy, Luiz Henrique de Figueiredo, Waldemar Celes (PUC-Rio)
-  description: "A lightweight, high-level, multi-paradigm programming language designed primarily for embedded use in applications. Developed in 1993 at the Pontifical Catholic University of Rio de Janeiro, it is known for its small size, efficiency, and easy integration with C."
-  people:
-    - Roberto Ierusalimschy
-    - Luiz Henrique de Figueiredo
-    - Waldemar Celes
-  influenced_by:
-    - scheme
-    #- clu
-    - modula
-    - c
-    - c_plus_plus
-  influenced: []
-    #- moonscript
-    #- fennel
-    #- nelua
-    #- terra
 # ------------------------------------------
 oberon:
   name: Oberon
@@ -887,10 +480,7 @@ oberon:
     - pascal
     - algol
   influenced:
-    #- component_pascal
     - go
-    - zig
-    #- v
 # ------------------------------------------
 object_pascal:
   name: Object Pascal
@@ -901,8 +491,6 @@ object_pascal:
     - Niklaus Wirth
   influenced_by:
     - pascal
-    - smalltalk
-    - simula
   influenced:
     - delphi
     - c_sharp
@@ -918,30 +506,12 @@ ocaml:
     - Damien Doligez
     - Didier Rémy
   influenced_by:
-    #- caml
-    - standard_ml
     - pascal
     - c
   influenced:
     - f_sharp
-    #- reason
-    #- rescript
     - rust
     - scala
-# ------------------------------------------
-zig:
-  name: Zig
-  creator: Andrew Kelley
-  description: "A general-purpose, statically typed, compiled system programming language designed for robustness, optimality, and maintainability. It aims to be a better C/C++ by providing manual memory management without garbage collection, compile-time code execution, and seamless C interoperability."
-  people:
-    - Andrew Kelley
-  influenced_by:
-    - c
-    - c_plus_plus
-    - rust
-    - go
-    - javascript
-  influenced: []
 # ------------------------------------------
 crystal:
   name: Crystal
@@ -969,8 +539,6 @@ mesa:
     - Edwin Satterthwaite
   influenced_by:
     - pascal
-    - simula
-    - smalltalk
   influenced:
     - modula_2
     - java
@@ -991,99 +559,3 @@ modula_2:
     - modula_3
     - oberon
     - ada
-    #- component_pascal
-# ------------------------------------------
-algol_58:
-  name: ALGOL 58
-  creator: International Committee (ACM/GAMM)
-  description: "The first version of the ALGOL programming language, originally known as IAL (International Algebraic Language). It laid the foundation for ALGOL 60 and the concept of a machine-independent algorithmic language."
-# ------------------------------------------
-algol_w:
-  name: ALGOL W
-  creator: Niklaus Wirth, Tony Hoare
-  description: "A programming language based on a proposal for a successor to ALGOL 60. It is a transitional language that introduced many concepts later refined in Pascal."
-# ------------------------------------------
-bash:
-  name: Bash
-  creator: Brian Fox (GNU Project)
-  description: "The GNU Project's shell and command language, written as a free software replacement for the Bourne shell. It is the default shell on most Linux distributions."
-# ------------------------------------------
-freebasic:
-  name: FreeBASIC
-  creator: Andre Victor T. Vicentini
-  description: "A free and open-source multiplatform BASIC compiler. It is syntax-compatible with Microsoft QuickBASIC and aims to provide a modern, 32/64-bit development environment."
-# ------------------------------------------
-matlab:
-  name: MATLAB
-  creator: Cleve Moler (MathWorks)
-  description: "A proprietary multi-paradigm programming language and numeric computing environment. It is widely used in academia and industry for matrix manipulations, algorithm implementation, and data visualization."
-# ------------------------------------------
-prolog:
-  name: Prolog
-  creator: Alain Colmerauer, Philippe Roussel
-  description: "A logic programming language from the early 1970s, widely used in artificial intelligence and computational linguistics. It is based on formal logic and Horn clauses."
-# ------------------------------------------
-purebasic:
-  name: PureBasic
-  creator: Frédéric Laboureur (Fantaisie Software)
-  description: "A commercially distributed procedural programming language and IDE based on BASIC. It is known for generating fast, native executables for Windows, Linux, and macOS."
-# ------------------------------------------
-qbasic:
-  name: QBasic
-  creator: Microsoft
-  description: "An integrated development environment and interpreter for a dialect of BASIC, based on QuickBASIC. It was included with MS-DOS and early versions of Windows as a tool for beginners."
-# ------------------------------------------
-small_basic:
-  name: Small Basic
-  creator: Vijaye Raji (Microsoft)
-  description: "A simplified version of BASIC from Microsoft, aimed at teaching programming to beginners and children. It features a small set of keywords and an easy-to-use IDE."
-# ------------------------------------------
-speedcoding:
-  name: Speedcoding
-  creator: John W. Backus (IBM)
-  description: "The first high-level programming language for an IBM computer, created in 1953 for the IBM 701. It was designed to simplify scientific calculations involving floating-point numbers."
-# ------------------------------------------
-turbo_pascal:
-  name: Turbo Pascal
-  creator: Anders Hejlsberg (Borland)
-  description: "A highly popular integrated development environment and compiler for Pascal. It was renowned for its extremely fast compilation speed and low cost, making it a dominant tool in the 1980s."
-# ------------------------------------------
-actionscript:
-  name: ActionScript
-  creator: Gary Grossman (Macromedia)
-  description: "An object-oriented programming language originally developed by Macromedia for Flash Player. It is a dialect of ECMAScript and was used extensively for rich web applications and games before Flash's decline."
-# ------------------------------------------
-livescript:
-  name: LiveScript
-  creator: Jeremy Ashkenas
-  description: "A functional programming language that compiles to JavaScript, created as an indirect successor to Coco and a fork of CoffeeScript. It emphasizes readability and expressiveness."
-# ------------------------------------------
-standard_ml:
-  name: Standard ML
-  creator: Robin Milner, Mads Tofte, Robert Harper (University of Edinburgh)
-  description: "A general-purpose, functional programming language known for its powerful module system and formal specification. It is widely used in compiler research and theorem proving."
-# ------------------------------------------
-elixir:
-  name: Elixir
-  creator: José Valim
-  description: "A dynamic, functional language designed for building scalable and maintainable applications. It runs on the Erlang VM (BEAM) and is known for its excellent tooling and metaprogramming capabilities."
-# ------------------------------------------
-common_lisp:
-  name: Common Lisp
-  creator: ANSI X3J13 Committee
-  description: "A standardized, multi-paradigm dialect of Lisp designed for industrial-strength applications. It includes a powerful object system (CLOS) and extensive libraries."
-# ------------------------------------------
-visual_basic:
-  name: Visual Basic
-  creator: Alan Cooper (Microsoft)
-  description: "An event-driven programming language and integrated development environment from Microsoft. It popularized rapid application development for Windows through its drag-and-drop GUI builder."
-# ------------------------------------------
-algol_60:
-  name: ALGOL 60
-  creator: International Committee (Peter Naur et al.)
-  description: "A landmark programming language that introduced code blocks with `begin`/`end`, lexical scoping, and the Backus-Naur form for describing syntax. It heavily influenced most subsequent languages."
-# ------------------------------------------
-pl_sql:
-  name: PL/SQL
-  creator: Oracle Corporation
-  description: "A procedural extension language for SQL and the Oracle relational database. It tightly integrates database operations with procedural constructs like loops and conditions."
